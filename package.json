@@ -1,12 +1,12 @@
 {
   "name": "mercy-quest",
   "productName": "Mercy Quest",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Mercy Quest desktop application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder build --publish always"
+    "dist": "electron-builder build"
   },
   "devDependencies": {
     "electron": "^42.4.1",
