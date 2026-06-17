@@ -6,7 +6,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --win nsis --mac"
+    "dist": "electron-builder"
   },
   "devDependencies": {
     "electron": "^42.4.1",
