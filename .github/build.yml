@@ -7,22 +7,32 @@ on:
 
 jobs:
   build:
+    runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
         os: [windows-latest, macos-latest]
 
-    runs-on: ${{ matrix.os }}
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      - name: Build app
-        run: npm run dist
+      - name: Build Windows
+        if: matrix.os == 'windows-latest'
+        run: npx electron-builder --win --publish always
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build macOS
+        if: matrix.os == 'macos-latest'
+        run: npx electron-builder --mac --publish always
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
