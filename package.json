@@ -6,24 +6,31 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --win nsis"
+    "dist": "electron-builder --win nsis --mac"
   },
   "devDependencies": {
     "electron": "^42.4.1",
     "electron-builder": "^26.0.12"
   },
+  "dependencies": {
+    "electron-log": "^5.0.0",
+    "electron-updater": "^6.0.0"
+  },
   "build": {
     "appId": "com.mannix.mercyquest",
     "productName": "Mercy Quest",
-    "directories": {
-      "output": "dist"
-    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "PythonPotato123",
+        "repo": "MercyQuest"
+      }
+    ],
     "win": {
       "target": "nsis"
     },
-    "nsis": {
-      "oneClick": true,
-      "allowToChangeInstallationDirectory": false
+    "mac": {
+      "target": "dmg"
     }
   }
 }
