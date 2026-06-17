@@ -1,0 +1,29 @@
+{
+  "name": "mercy-quest",
+  "productName": "Mercy Quest",
+  "version": "1.0.0",
+  "description": "Mercy Quest desktop application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^42.4.1",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.mannix.mercyquest",
+    "productName": "Mercy Quest",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false
+    }
+  }
+}
